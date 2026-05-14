@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rithvin Raj — Data Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#0f0f0f;
+  --ink2:#444;
+  --ink3:#888;
+  --bg:#fafaf8;
+  --surface:#f2f1ed;
+  --border:#e0dfd8;
+  --accent:#1a1a2e;
+  --teal:#0d6e6e;
+  --teal-light:#e6f4f4;
+  --amber:#b85c00;
+  --amber-light:#fdf2e7;
+  --coral:#b53a2f;
+  --coral-light:#fdf0ee;
+  --blue:#1a4f8c;
+  --blue-light:#eaf0fb;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(250,250,248,0.94);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 6vw;display:flex;align-items:center;justify-content:space-between;height:58px;
+}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-0.3px;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;}
+.nav-links a:hover{color:var(--ink);}
+
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:100px 6vw 80px;border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;top:0;right:0;width:55%;height:100%;
+  background:var(--surface);
+  clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);z-index:0;
+}
+.hero-content{position:relative;z-index:1;max-width:620px;}
+.hero-tag{
+  display:inline-block;font-size:11px;font-weight:500;
+  letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--teal);border:1px solid var(--teal);
+  padding:5px 14px;border-radius:2px;margin-bottom:28px;
+}
+.hero-name{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(42px,6vw,76px);font-weight:700;
+  line-height:1.05;letter-spacing:-2px;color:var(--ink);margin-bottom:8px;
+}
+.hero-name span{color:var(--teal);}
+.hero-role{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(16px,2.2vw,22px);font-weight:400;
+  color:var(--ink2);margin-bottom:28px;letter-spacing:-0.3px;
+}
+.hero-bio{font-size:15px;color:var(--ink2);max-width:500px;line-height:1.8;margin-bottom:40px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:#fff;
+  padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;
+  text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;
+}
+.btn-primary:hover{opacity:0.85;}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--ink);
+  padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;
+  text-decoration:none;letter-spacing:0.3px;
+  border:1px solid var(--border);transition:border-color 0.2s,background 0.2s;
+}
+.btn-outline:hover{border-color:var(--ink2);background:var(--surface);}
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  margin-top:56px;padding-top:40px;border-top:1px solid var(--border);
+}
+.stat-num{font-family:'Syne',sans-serif;font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-1px;}
+.stat-label{font-size:12px;color:var(--ink3);letter-spacing:0.5px;margin-top:2px;}
+
+section{padding:90px 6vw;}
+.section-header{margin-bottom:56px;}
+.section-tag{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;letter-spacing:-1px;color:var(--ink);line-height:1.1;}
+
+.skills-section{background:var(--surface);}
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:2px;border:1px solid var(--border);border-radius:6px;overflow:hidden;
+}
+.skill-cell{background:#fff;padding:24px 22px;transition:background 0.2s;}
+.skill-cell:hover{background:var(--surface);}
+.skill-cat{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.skill-tag{font-size:12px;background:var(--surface);color:var(--ink2);padding:4px 10px;border-radius:2px;border:1px solid var(--border);}
+
+.exp-card{display:grid;grid-template-columns:180px 1fr;gap:0 40px;padding:36px 0;border-bottom:1px solid var(--border);}
+.exp-card:first-child{border-top:1px solid var(--border);}
+.exp-period{font-size:12px;font-weight:500;color:var(--teal);letter-spacing:0.3px;margin-bottom:6px;}
+.exp-org{font-size:12px;color:var(--ink3);line-height:1.5;}
+.exp-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-0.4px;margin-bottom:16px;}
+.exp-points{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.exp-points li{font-size:14px;color:var(--ink2);padding-left:18px;position:relative;line-height:1.65;}
+.exp-points li::before{content:'—';position:absolute;left:0;color:var(--teal);font-size:12px;top:3px;}
+
+.projects-section{background:var(--bg);}
+.projects-grid{display:flex;flex-direction:column;gap:2px;}
+.project-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow 0.2s;margin-bottom:16px;}
+.project-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.07);}
+.project-inner{display:grid;grid-template-columns:1fr 2fr;min-height:200px;}
+.project-left{padding:32px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;}
+.project-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:700;color:var(--border);line-height:1;margin-bottom:16px;}
+.project-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.3px;line-height:1.3;margin-bottom:14px;}
+.project-stack{display:flex;flex-wrap:wrap;gap:5px;}
+.stack-tag{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
+.tag-teal{background:var(--teal-light);color:var(--teal);}
+.tag-amber{background:var(--amber-light);color:var(--amber);}
+.tag-coral{background:var(--coral-light);color:var(--coral);}
+.tag-blue{background:var(--blue-light);color:var(--blue);}
+.project-right{padding:32px 32px;}
+.project-desc{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:20px;}
+.project-points{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:24px;}
+.project-points li{font-size:13px;color:var(--ink2);padding-left:16px;position:relative;line-height:1.6;}
+.project-points li::before{content:'·';position:absolute;left:0;color:var(--teal);font-size:16px;top:-1px;}
+.project-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:500;color:var(--teal);text-decoration:none;
+  letter-spacing:0.3px;border-bottom:1px solid var(--teal);padding-bottom:1px;transition:opacity 0.2s;
+}
+.project-link:hover{opacity:0.7;}
+.project-no-link{font-size:12px;color:var(--ink3);font-style:italic;}
+
+.certs-section{background:var(--surface);}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.cert-card{
+  background:#fff;border:1px solid var(--border);border-radius:6px;
+  padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
+  transition:border-color 0.2s;
+}
+.cert-card:hover{border-color:var(--ink2);}
+.cert-issuer{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;}
+.cert-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.3px;line-height:1.3;}
+.cert-bottom{display:flex;align-items:center;justify-content:space-between;}
+.cert-year{font-size:12px;color:var(--ink3);}
+.cert-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:500;color:var(--teal);text-decoration:none;
+  letter-spacing:0.5px;text-transform:uppercase;
+  border:1px solid var(--teal);padding:5px 12px;border-radius:2px;transition:background 0.2s,color 0.2s;
+}
+.cert-link:hover{background:var(--teal);color:#fff;}
+
+.contact-section{background:var(--accent);color:#fff;}
+.contact-section .section-tag{color:rgba(255,255,255,0.4);}
+.contact-section .section-title{color:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:48px;}
+.contact-text{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;}
+.contact-links{display:flex;flex-direction:column;gap:16px;}
+.contact-item{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 20px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);border-radius:4px;
+  text-decoration:none;transition:background 0.2s;
+}
+.contact-item:hover{background:rgba(255,255,255,0.1);}
+.contact-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+.contact-val{font-size:14px;color:#fff;}
+
+footer{
+  background:var(--accent);border-top:1px solid rgba(255,255,255,0.08);
+  padding:24px 6vw;display:flex;align-items:center;justify-content:space-between;
+}
+.footer-name{font-family:'Syne',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);}
+.footer-note{font-size:12px;color:rgba(255,255,255,0.25);}
+
+.edu-card{
+  display:grid;grid-template-columns:180px 1fr;gap:0 40px;
+  padding:36px 0;border-bottom:1px solid var(--border);
+}
+.edu-card:first-child{border-top:1px solid var(--border);}
+.edu-degree{font-family:'Syne',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-0.4px;margin-bottom:6px;}
+.edu-school{font-size:14px;color:var(--ink2);}
+
+@media(max-width:768px){
+  .exp-card,.edu-card{grid-template-columns:1fr;}
+  .project-inner{grid-template-columns:1fr;}
+  .project-left{border-right:none;border-bottom:1px solid var(--border);}
+  .contact-grid{grid-template-columns:1fr;}
+  .hero-bg{display:none;}
+  .nav-links{gap:16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Rithvin Raj</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Data Analytics · Hyderabad, India</div>
+    <h1 class="hero-name">Dyavathi<br><span>Rithvin Raj</span></h1>
+    <p class="hero-role">Data Analytics Analyst</p>
+    <p class="hero-bio">I work with data end-to-end — from raw, messy datasets to clean dashboards and actionable insights. My toolkit is SQL, Python, and Power BI, with a focus on making numbers actually mean something to the people reading them.</p>
+    <div class="hero-actions">
+      <a href="mailto:rithvinrajdyavathi@gmail.com" class="btn-primary">Get in touch ↗</a>
+      <a href="https://github.com/rithvin04" target="_blank" class="btn-outline">GitHub Profile</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Records processed</div>
+      </div>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">KPIs tracked live</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-header">
+    <div class="section-tag">What I work with</div>
+    <h2 class="section-title">Skills & Tools</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cell">
+      <div class="skill-cat">Languages & Querying</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cat">Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Alteryx</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cat">Data Wrangling & ETL</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">ETL Workflows</span>
+        <span class="skill-tag">Data Transformation</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cat">Excel</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Advanced Excel</span>
+        <span class="skill-tag">Pivot Tables</span>
+        <span class="skill-tag">VLOOKUP / HLOOKUP</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cat">Analytics Concepts</div>
+      <div class="skill-tags">
+        <span class="skill-tag">EDA</span>
+        <span class="skill-tag">KPI Tracking</span>
+        <span class="skill-tag">Dashboard Dev</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cat">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Logistic Regression</span>
+        <span class="skill-tag">TF-IDF</span>
+        <span class="skill-tag">Scikit-learn</span>
+        <span class="skill-tag">Streamlit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:#fff;">
+  <div class="section-header">
+    <div class="section-tag">Work history</div>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="exp-card">
+    <div>
+      <div class="exp-period">Jun 2024 — Aug 2024</div>
+      <div class="exp-org">National Institute of Technology,<br>Tiruchirappalli</div>
+    </div>
+    <div>
+      <div class="exp-title">Data Analytics Intern</div>
+      <ul class="exp-points">
+        <li>Processed and consolidated 10,000+ operational records using SQL and Python to surface production trends and performance gaps.</li>
+        <li>Built Power BI dashboards tracking 5+ operational KPIs for real-time production monitoring.</li>
+        <li>Ran full ETL cycles — cleaning, transformation, and preparation of raw datasets for reporting.</li>
+        <li>Wrote complex SQL queries with joins, aggregations, and filters to extract meaningful operational insights.</li>
+        <li>Validated KPI consistency between dashboards and source datasets through structured testing.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-header">
+    <div class="section-tag">Things I've built</div>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-num">01</div>
+          <div>
+            <div class="project-name">Customer Behavior Analysis</div>
+            <div class="project-stack">
+              <span class="stack-tag tag-teal">Python</span>
+              <span class="stack-tag tag-amber">SQL</span>
+              <span class="stack-tag tag-blue">Power BI</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">End-to-end analytics on 3,900+ customer transactions — from raw CSV to an interactive Power BI dashboard. The goal was to understand purchasing patterns and segment customers by revenue contribution.</p>
+          <ul class="project-points">
+            <li>Loaded and explored data in Python; handled missing values, outliers, and formatting inconsistencies during cleaning.</li>
+            <li>Wrote SQL queries on MySQL to answer business questions around revenue by segment, product performance, and behavioral trends.</li>
+            <li>Built a Power BI dashboard with KPIs, slicers, and segment visuals; summarized findings in a report and presentation.</li>
+          </ul>
+          <a href="https://github.com/rithvin04/Customer_Behavior_Analysis" target="_blank" class="project-link">View on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-num">02</div>
+          <div>
+            <div class="project-name">Fake News Detector</div>
+            <div class="project-stack">
+              <span class="stack-tag tag-teal">Python</span>
+              <span class="stack-tag tag-coral">Scikit-learn</span>
+              <span class="stack-tag tag-amber">Streamlit</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">A lightweight ML app that classifies news articles as real or fake. Paste any article text and the model — built on TF-IDF and Logistic Regression — gives you an instant verdict.</p>
+          <ul class="project-points">
+            <li>Trained a Logistic Regression classifier on a labelled news dataset; vectorized text using TF-IDF to convert words into numerical features.</li>
+            <li>Serialized the model and vectorizer using Joblib for fast loading inside the app.</li>
+            <li>Built a clean Streamlit interface — paste text, get Real ✅ or Fake ❌ instantly, no setup needed.</li>
+          </ul>
+          <a href="https://github.com/rithvin04/Fake-News-Detector" target="_blank" class="project-link">View on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-num">03</div>
+          <div>
+            <div class="project-name">Spam Email Classifier</div>
+            <div class="project-stack">
+              <span class="stack-tag tag-teal">Python</span>
+              <span class="stack-tag tag-coral">Scikit-learn</span>
+              <span class="stack-tag tag-amber">Streamlit</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">A spam detection pipeline built from scratch. Takes raw email text, cleans it, converts it to TF-IDF vectors, and predicts spam vs ham — wrapped into a Streamlit app anyone can use without touching code.</p>
+          <ul class="project-points">
+            <li>Preprocessed email text — stripped URLs, punctuation, digits, and whitespace before vectorization.</li>
+            <li>Trained a Logistic Regression model; labels encoded as spam → 0, ham → 1 for clean binary classification.</li>
+            <li>Saved vectorizer and model as .jb files; Streamlit app loads them for real-time prediction on new emails.</li>
+          </ul>
+          <a href="https://github.com/rithvin04/Spam-Email-Classifier" target="_blank" class="project-link">View on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-num">04</div>
+          <div>
+            <div class="project-name">Sales Data ETL & Visualization</div>
+            <div class="project-stack">
+              <span class="stack-tag tag-amber">SQL</span>
+              <span class="stack-tag tag-teal">Excel</span>
+              <span class="stack-tag tag-blue">Power BI</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">Designed a full ETL workflow to turn raw, unstructured sales data into clean analytical tables ready for reporting. The end output is a Power BI dashboard covering regional performance, sales trends, and key metrics.</p>
+          <ul class="project-points">
+            <li>Used Excel advanced functions — VLOOKUP, HLOOKUP, Pivot Tables — for initial data preparation and validation.</li>
+            <li>Wrote SQL to transform raw tables into structured analytical schemas fit for dashboard consumption.</li>
+            <li>Built dashboards showing sales trends, regional breakdowns, and performance metrics with interactive filters.</li>
+          </ul>
+          <span class="project-no-link">Private project — no public repo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certifications">
+  <div class="section-header">
+    <div class="section-tag">Credentials</div>
+    <h2 class="section-title">Certifications</h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">HackerRank</div>
+        <div class="cert-name">SQL (Intermediate)</div>
+      </div>
+      <div class="cert-bottom">
+        <span class="cert-year">2024</span>
+        <a href="https://www.hackerrank.com/certificates/6edd6c370aa7" target="_blank" class="cert-link">View ↗</a>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">Udemy</div>
+        <div class="cert-name">Data Analytics Course (Excel Included)</div>
+      </div>
+      <div class="cert-bottom">
+        <span class="cert-year">2024</span>
+        <a href="https://www.udemy.com/certificate/UC-04dbd76d-665d-4f56-8a61-42b8827905fd/" target="_blank" class="cert-link">View ↗</a>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div>
+        <div class="cert-issuer">WsCube Tech</div>
+        <div class="cert-name">Power BI</div>
+      </div>
+      <div class="cert-bottom">
+        <span class="cert-year">2024</span>
+        <a href="https://drive.google.com/file/d/1q8Q2WoxeyOGZOgOwBkngShrVj6j1gaFr/view" target="_blank" class="cert-link">View ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:#fff;">
+  <div class="section-header">
+    <div class="section-tag">Academic background</div>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-card">
+    <div>
+      <div class="exp-period">2021 — 2025</div>
+      <div class="exp-org">NIT Tiruchirappalli</div>
+    </div>
+    <div>
+      <div class="edu-degree">B.Tech — Production Engineering</div>
+      <div class="edu-school">National Institute of Technology, Tiruchirappalli</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <div class="section-tag">Let's connect</div>
+    <h2 class="section-title">Get in Touch</h2>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-text">I'm actively looking for data analytics roles. If you're hiring or want to talk about data, reach out directly — I respond fast.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:rithvinrajdyavathi@gmail.com" class="contact-item">
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">rithvinrajdyavathi@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/rithvin-raj-dyavathi-71b663282" target="_blank" class="contact-item">
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val">linkedin.com/in/rithvin-raj-dyavathi</div>
+        </div>
+      </a>
+      <a href="tel:+917997164746" class="contact-item">
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">+91 79971 64746</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-name">Dyavathi Rithvin Raj — Data Analytics</span>
+  <span class="footer-note">Hyderabad, India · 2025</span>
+</footer>
+
+</body>
+</html>
