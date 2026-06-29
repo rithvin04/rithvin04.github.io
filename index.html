@@ -27,100 +27,65 @@
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;}
 
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(250,250,248,0.94);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:0 6vw;display:flex;align-items:center;justify-content:space-between;height:58px;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 6vw;display:flex;align-items:center;justify-content:space-between;height:58px;}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-0.3px;}
 .nav-links{display:flex;gap:28px;list-style:none;}
 .nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:0.3px;transition:color 0.2s;}
 .nav-links a:hover{color:var(--ink);}
 
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:100px 6vw 80px;border-bottom:1px solid var(--border);
-  position:relative;overflow:hidden;
-}
-.hero-bg{
-  position:absolute;top:0;right:0;width:55%;height:100%;
-  background:var(--surface);
-  clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);z-index:0;
-}
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 6vw 80px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.hero-bg{position:absolute;top:0;right:0;width:55%;height:100%;background:var(--surface);clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);z-index:0;}
 .hero-content{position:relative;z-index:1;max-width:620px;}
-.hero-tag{
-  display:inline-block;font-size:11px;font-weight:500;
-  letter-spacing:1.8px;text-transform:uppercase;
-  color:var(--teal);border:1px solid var(--teal);
-  padding:5px 14px;border-radius:2px;margin-bottom:28px;
-}
-.hero-name{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(42px,6vw,76px);font-weight:700;
-  line-height:1.05;letter-spacing:-2px;color:var(--ink);margin-bottom:8px;
-}
+.hero-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);border:1px solid var(--teal);padding:5px 14px;border-radius:2px;margin-bottom:28px;}
+.hero-name{font-family:'Syne',sans-serif;font-size:clamp(42px,6vw,76px);font-weight:700;line-height:1.05;letter-spacing:-2px;color:var(--ink);margin-bottom:8px;}
 .hero-name span{color:var(--teal);}
-.hero-role{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(16px,2.2vw,22px);font-weight:400;
-  color:var(--ink2);margin-bottom:28px;letter-spacing:-0.3px;
-}
+.hero-role{font-family:'Syne',sans-serif;font-size:clamp(16px,2.2vw,22px);font-weight:400;color:var(--ink2);margin-bottom:28px;letter-spacing:-0.3px;}
 .hero-bio{font-size:15px;color:var(--ink2);max-width:500px;line-height:1.8;margin-bottom:40px;}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--accent);color:#fff;
-  padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;
-  text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;
-}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.3px;transition:opacity 0.2s;}
 .btn-primary:hover{opacity:0.85;}
-.btn-outline{
-  display:inline-flex;align-items:center;gap:8px;
-  background:transparent;color:var(--ink);
-  padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;
-  text-decoration:none;letter-spacing:0.3px;
-  border:1px solid var(--border);transition:border-color 0.2s,background 0.2s;
-}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:12px 26px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.3px;border:1px solid var(--border);transition:border-color 0.2s,background 0.2s;}
 .btn-outline:hover{border-color:var(--ink2);background:var(--surface);}
-.hero-stats{
-  display:flex;gap:40px;flex-wrap:wrap;
-  margin-top:56px;padding-top:40px;border-top:1px solid var(--border);
-}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:56px;padding-top:40px;border-top:1px solid var(--border);}
 .stat-num{font-family:'Syne',sans-serif;font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-1px;}
 .stat-label{font-size:12px;color:var(--ink3);letter-spacing:0.5px;margin-top:2px;}
 
+/* SECTION SHARED */
 section{padding:90px 6vw;}
 .section-header{margin-bottom:56px;}
 .section-tag{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
 .section-title{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,42px);font-weight:700;letter-spacing:-1px;color:var(--ink);line-height:1.1;}
 
+/* SKILLS */
 .skills-section{background:var(--surface);}
-.skills-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:2px;border:1px solid var(--border);border-radius:6px;overflow:hidden;
-}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .skill-cell{background:#fff;padding:24px 22px;transition:background 0.2s;}
 .skill-cell:hover{background:var(--surface);}
 .skill-cat{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px;}
 .skill-tag{font-size:12px;background:var(--surface);color:var(--ink2);padding:4px 10px;border-radius:2px;border:1px solid var(--border);}
 
-.exp-card{display:grid;grid-template-columns:180px 1fr;gap:0 40px;padding:36px 0;border-bottom:1px solid var(--border);}
-.exp-card:first-child{border-top:1px solid var(--border);}
+/* EXPERIENCE / EDUCATION */
+.exp-card,.edu-card{display:grid;grid-template-columns:180px 1fr;gap:0 40px;padding:36px 0;border-bottom:1px solid var(--border);}
+.exp-card:first-of-type,.edu-card:first-of-type{border-top:1px solid var(--border);}
 .exp-period{font-size:12px;font-weight:500;color:var(--teal);letter-spacing:0.3px;margin-bottom:6px;}
 .exp-org{font-size:12px;color:var(--ink3);line-height:1.5;}
 .exp-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-0.4px;margin-bottom:16px;}
 .exp-points{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .exp-points li{font-size:14px;color:var(--ink2);padding-left:18px;position:relative;line-height:1.65;}
 .exp-points li::before{content:'—';position:absolute;left:0;color:var(--teal);font-size:12px;top:3px;}
+.edu-degree{font-family:'Syne',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-0.4px;margin-bottom:6px;}
+.edu-school{font-size:14px;color:var(--ink2);}
 
+/* PROJECTS */
 .projects-section{background:var(--bg);}
-.projects-grid{display:flex;flex-direction:column;gap:2px;}
-.project-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow 0.2s;margin-bottom:16px;}
+.projects-grid{display:flex;flex-direction:column;gap:20px;}
+.project-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow 0.2s;}
 .project-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.07);}
 .project-inner{display:grid;grid-template-columns:1fr 2fr;min-height:200px;}
-.project-left{padding:32px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;}
+.project-left{padding:32px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;}
 .project-num{font-family:'Syne',sans-serif;font-size:48px;font-weight:700;color:var(--border);line-height:1;margin-bottom:16px;}
 .project-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:600;color:var(--ink);letter-spacing:-0.3px;line-height:1.3;margin-bottom:14px;}
 .project-stack{display:flex;flex-wrap:wrap;gap:5px;}
@@ -129,77 +94,53 @@ section{padding:90px 6vw;}
 .tag-amber{background:var(--amber-light);color:var(--amber);}
 .tag-coral{background:var(--coral-light);color:var(--coral);}
 .tag-blue{background:var(--blue-light);color:var(--blue);}
-.project-right{padding:32px 32px;}
+.project-right{padding:32px;display:flex;flex-direction:column;justify-content:center;}
 .project-desc{font-size:14px;color:var(--ink2);line-height:1.75;margin-bottom:20px;}
 .project-points{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:24px;}
 .project-points li{font-size:13px;color:var(--ink2);padding-left:16px;position:relative;line-height:1.6;}
 .project-points li::before{content:'·';position:absolute;left:0;color:var(--teal);font-size:16px;top:-1px;}
-.project-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:500;color:var(--teal);text-decoration:none;
-  letter-spacing:0.3px;border-bottom:1px solid var(--teal);padding-bottom:1px;transition:opacity 0.2s;
-}
+.project-buttons{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--teal);text-decoration:none;letter-spacing:0.3px;border-bottom:1px solid var(--teal);padding-bottom:1px;transition:opacity 0.2s;}
 .project-link:hover{opacity:0.7;}
 .project-no-link{font-size:12px;color:var(--ink3);font-style:italic;}
 
+/* CERTIFICATIONS */
 .certs-section{background:var(--surface);}
 .certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-.cert-card{
-  background:#fff;border:1px solid var(--border);border-radius:6px;
-  padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
-  transition:border-color 0.2s;
-}
+.cert-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;transition:border-color 0.2s;}
 .cert-card:hover{border-color:var(--ink2);}
 .cert-issuer{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink3);margin-bottom:10px;}
 .cert-name{font-family:'Syne',sans-serif;font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-0.3px;line-height:1.3;}
 .cert-bottom{display:flex;align-items:center;justify-content:space-between;}
 .cert-year{font-size:12px;color:var(--ink3);}
-.cert-link{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:11px;font-weight:500;color:var(--teal);text-decoration:none;
-  letter-spacing:0.5px;text-transform:uppercase;
-  border:1px solid var(--teal);padding:5px 12px;border-radius:2px;transition:background 0.2s,color 0.2s;
-}
-.cert-link:hover{background:var(--teal);color:#fff;}
+.cert-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:#fff;background:var(--teal);text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;border:1px solid var(--teal);padding:5px 12px;border-radius:2px;transition:opacity 0.2s;}
+.cert-link:hover{opacity:0.85;}
 
+/* CONTACT */
 .contact-section{background:var(--accent);color:#fff;}
 .contact-section .section-tag{color:rgba(255,255,255,0.4);}
 .contact-section .section-title{color:#fff;}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:48px;}
 .contact-text{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.8;}
 .contact-links{display:flex;flex-direction:column;gap:16px;}
-.contact-item{
-  display:flex;align-items:center;gap:14px;
-  padding:16px 20px;background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.1);border-radius:4px;
-  text-decoration:none;transition:background 0.2s;
-}
+.contact-item{display:flex;align-items:center;gap:14px;padding:16px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:4px;text-decoration:none;transition:background 0.2s;}
 .contact-item:hover{background:rgba(255,255,255,0.1);}
 .contact-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
 .contact-val{font-size:14px;color:#fff;}
 
-footer{
-  background:var(--accent);border-top:1px solid rgba(255,255,255,0.08);
-  padding:24px 6vw;display:flex;align-items:center;justify-content:space-between;
-}
+/* FOOTER */
+footer{background:var(--accent);border-top:1px solid rgba(255,255,255,0.08);padding:24px 6vw;display:flex;align-items:center;justify-content:space-between;}
 .footer-name{font-family:'Syne',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);}
 .footer-note{font-size:12px;color:rgba(255,255,255,0.25);}
 
-.edu-card{
-  display:grid;grid-template-columns:180px 1fr;gap:0 40px;
-  padding:36px 0;border-bottom:1px solid var(--border);
-}
-.edu-card:first-child{border-top:1px solid var(--border);}
-.edu-degree{font-family:'Syne',sans-serif;font-size:19px;font-weight:600;color:var(--ink);letter-spacing:-0.4px;margin-bottom:6px;}
-.edu-school{font-size:14px;color:var(--ink2);}
-
+/* RESPONSIVE */
 @media(max-width:768px){
-  .exp-card,.edu-card{grid-template-columns:1fr;}
-  .project-inner{grid-template-columns:1fr;}
+  .exp-card,.edu-card,.project-inner{grid-template-columns:1fr;}
   .project-left{border-right:none;border-bottom:1px solid var(--border);}
   .contact-grid{grid-template-columns:1fr;}
   .hero-bg{display:none;}
   .nav-links{gap:16px;}
+  body{padding-top:58px;}
 }
 </style>
 </head>
@@ -222,7 +163,7 @@ footer{
     <div class="hero-tag">Data Analytics · Hyderabad, India</div>
     <h1 class="hero-name">Dyavathi<br><span>Rithvin Raj</span></h1>
     <p class="hero-role">Data Analytics Analyst</p>
-    <p class="hero-bio">I work with data end-to-end — from raw, messy datasets to clean dashboards and actionable insights. My toolkit is SQL, Python, and Power BI, with a focus on making numbers actually mean something to the people reading them.</p>
+    <p class="hero-bio">I work with data end-to-end from raw, messy datasets to clean dashboards and actionable insights. My toolkit is SQL, Python, and Power BI, with a focus on making numbers actually mean something to the people reading them.</p>
     <div class="hero-actions">
       <a href="mailto:rithvinrajdyavathi@gmail.com" class="btn-primary">Get in touch ↗</a>
       <a href="https://github.com/rithvin04" target="_blank" class="btn-outline">GitHub Profile</a>
@@ -359,7 +300,9 @@ footer{
             <li>Wrote SQL queries on MySQL to answer business questions around revenue by segment, product performance, and behavioral trends.</li>
             <li>Built a Power BI dashboard with KPIs, slicers, and segment visuals; summarized findings in a report and presentation.</li>
           </ul>
-          <a href="https://github.com/rithvin04/Customer_Behavior_Analysis" target="_blank" class="project-link">View on GitHub ↗</a>
+          <div class="project-buttons">
+            <a href="https://github.com/rithvin04/Customer_Behavior_Analysis" target="_blank" class="project-link">View on GitHub ↗</a>
+          </div>
         </div>
       </div>
     </div>
@@ -376,30 +319,20 @@ footer{
               <span class="stack-tag tag-amber">Streamlit</span>
             </div>
           </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">A lightweight ML app that classifies news articles as real or fake. Paste any article text and the model built on TF-IDF and Logistic Regression gives you an instant verdict.</p>
+          <ul class="project-points">
+            <li>Trained a Logistic Regression classifier on a labelled news dataset; vectorized text using TF-IDF to convert words into numerical features.</li>
+            <li>Serialized the model and vectorizer using Joblib for fast loading inside the app.</li>
+            <li>Built a clean Streamlit interface paste text, get Real ✅ or Fake ❌ instantly, no setup needed.</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="https://github.com/rithvin04/Fake-News-Detector" target="_blank" class="project-link">View on GitHub ↗</a>
+            <a href="https://fake-news-detector-d04.streamlit.app/" target="_blank" class="project-link">Live Demo ↗</a>
+          </div>
+        </div>
       </div>
-<div class="project-right">
-  <p class="project-desc">
-    A lightweight ML app that classifies news articles as real or fake. Paste any article text and the model built on TF-IDF and Logistic Regression gives you an instant verdict.
-  </p>
-
-  <ul class="project-points">
-    <li>Trained a Logistic Regression classifier on a labelled news dataset; vectorized text using TF-IDF to convert words into numerical features.</li>
-    <li>Serialized the model and vectorizer using Joblib for fast loading inside the app.</li>
-    <li>Built a clean Streamlit interface paste text, get Real ✅ or Fake ❌ instantly, no setup needed.</li>
-  </ul>
-
-  <div class="project-buttons">
-    <a href="https://github.com/rithvin04/Fake-News-Detector" target="_blank" class="project-link">
-      View on GitHub ↗
-    </a>
-
-    
-    
-    <a href="https://fake-news-detector-d04.streamlit.app/" target="_blank" class="project-link">
-      Live Demo ↗
-    </a>
-  </div>
-</div>
     </div>
 
     <div class="project-card">
@@ -415,27 +348,19 @@ footer{
             </div>
           </div>
         </div>
-<div class="project-right">
-  <p class="project-desc">
-    A spam detection pipeline built from scratch. Takes raw email text, cleans it, converts it to TF-IDF vectors, and predicts spam vs ham wrapped into a Streamlit app anyone can use without touching code.
-  </p>
-
-  <ul class="project-points">
-    <li>Preprocessed email text stripped URLs, punctuation, digits, and whitespace before vectorization.</li>
-    <li>Trained a Logistic Regression model; labels encoded as spam → 0, ham → 1 for clean binary classification.</li>
-    <li>Saved vectorizer and model as .jb files; Streamlit app loads them for real-time prediction on new emails.</li>
-  </ul>
-
-  <div class="project-buttons">
-    <a href="https://github.com/rithvin04/Spam-Email-Classifier" target="_blank" class="project-link">
-      View on GitHub ↗
-    </a>
-
-    <a href="https://spam-ham-checker.streamlit.app/" target="_blank" class="project-link">
-      Live Demo ↗
-    </a>
-  </div>
-</div>
+        <div class="project-right">
+          <p class="project-desc">A spam detection pipeline built from scratch. Takes raw email text, cleans it, converts it to TF-IDF vectors, and predicts spam vs ham wrapped into a Streamlit app anyone can use without touching code.</p>
+          <ul class="project-points">
+            <li>Preprocessed email text stripped URLs, punctuation, digits, and whitespace before vectorization.</li>
+            <li>Trained a Logistic Regression model; labels encoded as spam → 0, ham → 1 for clean binary classification.</li>
+            <li>Saved vectorizer and model as .jb files; Streamlit app loads them for real-time prediction on new emails.</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="https://github.com/rithvin04/Spam-Email-Classifier" target="_blank" class="project-link">View on GitHub ↗</a>
+            <a href="https://spam-ham-checker.streamlit.app/" target="_blank" class="project-link">Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="project-card">
@@ -458,7 +383,9 @@ footer{
             <li>Wrote SQL to transform raw tables into structured analytical schemas fit for dashboard consumption.</li>
             <li>Built dashboards showing sales trends, regional breakdowns, and performance metrics with interactive filters.</li>
           </ul>
-          <span class="project-no-link">Private project — no public repo</span>
+          <div class="project-buttons">
+            <span class="project-no-link">Private project — no public repo</span>
+          </div>
         </div>
       </div>
     </div>
@@ -479,7 +406,7 @@ footer{
         <div class="cert-name">SQL (Advanced)</div>
       </div>
       <div class="cert-bottom">
-        <span class="cert-year">2024</span>
+        <span class="cert-year">2025</span>
         <a href="https://www.hackerrank.com/certificates/6edd6c370aa7" target="_blank" class="cert-link">View ↗</a>
       </div>
     </div>
@@ -489,7 +416,7 @@ footer{
         <div class="cert-name">Data Analytics Course</div>
       </div>
       <div class="cert-bottom">
-        <span class="cert-year">2024</span>
+        <span class="cert-year">2025</span>
         <a href="https://www.udemy.com/certificate/UC-04dbd76d-665d-4f56-8a61-42b8827905fd/" target="_blank" class="cert-link">View ↗</a>
       </div>
     </div>
@@ -499,7 +426,7 @@ footer{
         <div class="cert-name">Power BI</div>
       </div>
       <div class="cert-bottom">
-        <span class="cert-year">2024</span>
+        <span class="cert-year">2025</span>
         <a href="https://drive.google.com/file/d/1q8Q2WoxeyOGZOgOwBkngShrVj6j1gaFr/view" target="_blank" class="cert-link">View ↗</a>
       </div>
     </div>
